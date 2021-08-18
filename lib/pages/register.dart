@@ -25,20 +25,7 @@ class _RegisterPageState extends State<RegisterPage> {
       ),
       onPressed: () {
         // Perform some action
-        print("bấm vào là login nè" + emailController.text);
-        // Create a SnackBar.
-        final snackBar = SnackBar(
-          content: Text('Message is deleted!'),
-          action: SnackBarAction(
-            label: 'UNDO',
-            onPressed: () {
-              // this._showSnackBarMsgRestored(context);
-            },
-          ),
-        );
-        // Find the Scaffold in the widget tree
-        // and use it to show a SnackBar.
-        Scaffold.of(context).showSnackBar(snackBar);
+        print("emailController.text: " + emailController.text);
       },
     );
   }
