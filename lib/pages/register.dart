@@ -16,7 +16,7 @@ class _RegisterPageState extends State<RegisterPage> {
   TextEditingController passwordController = new TextEditingController();
 
   
-  Widget _buildSignIn(BuildContext context ){
+  Widget _buildSignUp(BuildContext context ){
     return TextButton(
       child: const Text('Sign In'),
       style: ButtonStyle(
@@ -26,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
       onPressed: () {
         // Perform some action
         print("bấm vào là login nè" + emailController.text);
-         // Create a SnackBar.
+        // Create a SnackBar.
         final snackBar = SnackBar(
           content: Text('Message is deleted!'),
           action: SnackBarAction(
@@ -42,13 +42,15 @@ class _RegisterPageState extends State<RegisterPage> {
       },
     );
   }
-  Widget __buildForgot(BuildContext context){
+  Widget __buildBackLogin(BuildContext context){
     return TextButton(
       child: Text(
-        'Bạn quên mật khẩu?',
+        'Bạn đã có tài khoản?',
         style: TextStyle(color: Colors.black54),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pushReplacementNamed(context, "/");
+      },
     );
   }
 
@@ -67,22 +69,29 @@ class _RegisterPageState extends State<RegisterPage> {
                 children: <Widget>[
                   UtilWidget.buildLogo(context),
                   SizedBox(height: 45.0),
-                  TextFormField(
-                    // controller: emailController,
+                  TextField(
+                    controller: nameController,
+                    keyboardType: TextInputType.name,
+                    autofocus: false,
+                    decoration: UtilDecoration.getSimpleDecoration("nhập tên của bạn.."),
+                  ),
+                  SizedBox(height: 45.0),
+                  TextField(
+                    controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     autofocus: false,
                     decoration: UtilDecoration.getSimpleDecoration("nhập email của bạn.."),
                   ),
                   SizedBox(height: 10.0),
-                  TextFormField(
-                    // controller: passwordController,
+                  TextField(
+                    controller: passwordController,
                     autofocus: false,
                     obscureText: true,
                     decoration:  UtilDecoration.getSimpleDecoration("Nhập password của bạn..."),
                   ),
                   SizedBox(height: 15.0),
-                  _buildSignIn(ctxOfScaffold),
-                  __buildForgot(context)
+                  _buildSignUp(ctxOfScaffold),
+                  __buildBackLogin(context)
                 ],
               );
             }

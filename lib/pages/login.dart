@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
         onPressed: () {
           /// chuyển qua màn hình register
-          // Navigator.pushReplacementNamed(context, "/register");
+          Navigator.pushReplacementNamed(context, "/register");
         },
       )
     );
